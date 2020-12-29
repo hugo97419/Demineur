@@ -15,6 +15,7 @@ boolean drapeau;
 int proxiMine;
 boolean ouverture;
 boolean kitDeDeminage;
+boolean celluleVide;
 
 Cellule() {
 mine = false;
@@ -22,6 +23,7 @@ drapeau = false;
 proxiMine = 0;
 ouverture = false;
 kitDeDeminage = false;
+celluleVide = false;
 }
 
 boolean placerMine(){
