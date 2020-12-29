@@ -24,26 +24,30 @@ Grille() {
 
 void activer_mine(int column) { // ressort vrai si il y a un desing
         int i = largeur-1;
-        while (Cellules[i][column]. == null) {
+        while (Cellules[i][column].celluleVide == true) {
             i--;
             if (i == 0) {
                 break;
             }
         }
-        if (i >= 0 && i < 6) {
+        if (i >= 0 && i < largeur) {
             Cellules[i][column].activerMine();
         }
         
 
     }
 
-boolean analyseCellule() {
+boolean analyseMine() {
  
 for (int i = 0; i < largeur; i++) {
             for (int j = 0; j < longueur; j++) {
         
              if (Cellules[i][j].mine == false) {
-                 Cellules[i][j].proxiMine = 
+                 Cellules[i][j].proxiMine = 0;
+                 return true;
+             }
+             else {
+                 return false;
              }
              
     }
