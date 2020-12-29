@@ -22,16 +22,16 @@ Grille() {
         }
     }
 
-void activer_trounoir(int column) { // ressort vrai si il y a un desing
-        int i = 5;
-        while (Cellules[i][column].CurrentToken == null) {
+void activer_mine(int column) { // ressort vrai si il y a un desing
+        int i = largeur-1;
+        while (Cellules[i][column]. == null) {
             i--;
             if (i == 0) {
                 break;
             }
         }
         if (i >= 0 && i < 6) {
-            Cellules[i][column].activerTrouNoir();
+            Cellules[i][column].activerMine();
         }
         
 
@@ -42,9 +42,17 @@ boolean analyseCellule() {
 for (int i = 0; i < largeur; i++) {
             for (int j = 0; j < longueur; j++) {
         
+             if (Cellules[i][j].mine == false) {
+                 Cellules[i][j].proxiMine = 
+             }
+             
     }
 }
+}
 
+void ouvrirCellule() {
+    
+}
 
 void viderGrille() {
         for (int i = 0; i < largeur; i++) {
@@ -56,7 +64,7 @@ void viderGrille() {
                 }
             }
         }
-    }
+    
  boolean placerTrouNoir(int ligne, int colonne) {
         if (!Cellules[ligne][colonne].mine) {
             Cellules[ligne][colonne].mine = true;
@@ -64,6 +72,6 @@ void viderGrille() {
         }
         return false;
     } 
+
 }
- 
 
