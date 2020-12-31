@@ -23,7 +23,6 @@ drapeau = false;
 proxiMine = 0;
 ouverture = false;
 kitDeDeminage = false;
-celluleVide = false;
 }
 
 boolean placerMine(){
