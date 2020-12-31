@@ -18,13 +18,14 @@ Grille() {
         for (int i=0; i<largeur; i++) {
             for (int j=0; j<longueur; j++) {
                 Cellules[i][j] = new Cellule();
+                
             }
         }
     }
 
 void activer_mine(int column) { // ressort vrai si il y a un desing
         int i = largeur-1;
-        while (Cellules[i][column].celluleVide == true) {
+        while (Cellules[i][column].mine == false) {
             i--;
             if (i == 0) {
                 break;
@@ -37,24 +38,37 @@ void activer_mine(int column) { // ressort vrai si il y a un desing
 
     }
 
-boolean analyseMine() {
- 
-for (int i = 0; i < largeur; i++) {
-            for (int j = 0; j < longueur; j++) {
-        
-             if (Cellules[i][j].mine == false) {
-                 Cellules[i][j].proxiMine = 0;
-                 return true;
-             }
-             else {
-                 return false;
-             }
-             
+int analyseMine(int lignes, int colonnes) {
+    if (lignes >= 0 && lignes <largeur && colonnes >= 0 && colonnes < longueur && Cellules[lignes][colonnes].mine == true) {
+        return 1;
     }
-}
-}
+        return 0;
+ }
 
-void ouvrirCellule() {
+int analyseMineAutour(int lignes, int colonnes) {
+   int nbMines  = 0;
+ 
+   nbMines += analyseMine(lignes+1, colonnes);
+   nbMines += analyseMine(lignes, colonnes+1);
+   nbMines += analyseMine(lignes+1, colonnes+1);
+   
+   nbMines += analyseMine(lignes-1, colonnes);
+   nbMines += analyseMine(lignes, colonnes-1);
+   nbMines += analyseMine(lignes-1, colonnes-1);
+   
+   nbMines += analyseMine(lignes+1, colonnes-1);
+   nbMines += analyseMine(lignes-1, colonnes+1);
+ 
+   return nbMines;
+}
+    
+void ouvrirCellules(int lignes, int colonnes) {
+    if (lignes >= 0 && lignes <largeur && colonnes >= 0 && colonnes < longueur && Cellules[lignes][colonnes].mine == false) {
+        int mineAutour = analyseMineAutour(lignes, colonnes);
+        
+    }
+    
+    
     
 }
 
