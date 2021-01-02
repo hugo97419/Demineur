@@ -14,9 +14,8 @@ String Nom;
 int pointDeVie;
 int nbKit;
 
-Joueur(String Name, int PdV) {
+Joueur(String Name) {
     Nom = Name;
-    pointDeVie = PdV;
 }
 
 void obtenirKit() {
