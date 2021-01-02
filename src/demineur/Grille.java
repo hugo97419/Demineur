@@ -81,17 +81,17 @@ void decouvrirCellules(int lignes, int colonnes) {
          decouvrirCellules(lignes-1, colonnes+1);
      }
     }
-}
-
-void ouvrirCellules(int ligne, int colonne) {
-    while(ligne>=0 && ligne<largeur && colonne >=0 && colonne<longueur) {
-        if (Cellules[ligne][colonne].mine == false) {
-            
-        }
-    }
-                
-          
-            
+}            
+ 
+boolean etreGagnantPourJoueur(Joueur joueur) {
+    for (int i = 0; largeur < 6; i++) {
+            for (int j = 0; longueur < 4; j++) {
+               if (Cellules[i][j].mine == true && joueur.pointDeVie == 0 )
+                 return true;
+            }
+    
+    } 
+    return false;       
 
 
 }    
@@ -106,7 +106,7 @@ void viderGrille() {
             }
         }
     
-boolean placerTrouNoir(int ligne, int colonne) {
+boolean placerMine(int ligne, int colonne) {
         if (!Cellules[ligne][colonne].mine) {
             Cellules[ligne][colonne].mine = true;
             return true;
